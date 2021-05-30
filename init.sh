@@ -19,13 +19,13 @@
 #sudo apt install variety plank
 
 # Ulauncher
-#wget https://github.com/Ulauncher/Ulauncher/releases/download/5.11.0/ulauncher_5.11.0_all.deb
-#rm ulauncher_5.11.0_all.deb
+wget -P ./manual/ https://github.com/Ulauncher/Ulauncher/releases/download/5.11.0/ulauncher_5.11.0_all.deb
 
 # Visual Studio Code
 #snap install code --classic
 
 # Python (python-is-python3)
 #sudo apt install python-is-python3
+
 
 
