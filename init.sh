@@ -12,3 +12,8 @@ sed -i 's/robbyrussell/powerlevel10k\/powerlevel10k/g' ~/.zshrc
 # Autojump
 sudo apt install autojump
 echo ". /usr/share/autojump/autojump.sh" >> ~/.zshrc                                                                              
+
+# tmux
+sudo apt install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cp input/.tmux.conf ~/.tmux.conf
