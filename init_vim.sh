@@ -3,6 +3,7 @@ sudo apt install fd-find
 sudo apt install ripgrep
 
 sudo add-apt-repository 'deb http://deb.debian.org/debian buster-backports main' 
+sudo apt update
 sudo apt install checkinstall
 
 git clone https://github.com/neovim/neovim
