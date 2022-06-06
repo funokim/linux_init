@@ -23,6 +23,7 @@ git clone https://github.com/hunhokim/nvim ~/.config/nvim
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# clangd
-sudo apt install clangd-11
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 100
+# CoC related
+sudo apt install npm nodejs
+npm install -g n
+n 16
