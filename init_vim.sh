@@ -1,17 +1,21 @@
-# Tools needed to build
-sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
-sudo apt install fd-find
-sudo apt install ripgrep
+#!/bin/bash
 
-# checkinstall
-sudo add-apt-repository 'deb http://deb.debian.org/debian buster-backports main' 
-sudo apt update
-sudo apt install checkinstall
+# Tools needed to build
+sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen -y
+sudo apt install fd-find ripgrep -y
 
 # Neovim
-git clone https://github.com/neovim/neovim
-cd neovim && make CMAKE_BUILD_TYPE=Release
-sudo checkinstall
+if [[ -z $(which checkinstall) ]]; then
+  sudo add-apt-repository 'deb http://deb.debian.org/debian buster-backports main'
+  sudo apt update
+  sudo apt install checkinstall
+fi
+
+if [[ -z $(which nvim) ]]; then
+  git clone https://github.com/neovim/neovim
+  cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+  sudo checkinstall -y
+fi
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -23,7 +27,6 @@ git clone https://github.com/hunhokim/nvim ~/.config/nvim
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# CoC related
-sudo apt install npm nodejs
-npm install -g n
-n 16
+# Nvm, Node
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+nvm install node
