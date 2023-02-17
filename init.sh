@@ -29,3 +29,14 @@ if [[ -z $(which tmux) ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   cp input/.tmux.conf ~/.tmux.conf
 fi
+
+if ! [[ -e ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+if ! [[ -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
+sed -i 's/plugins=(.*)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
+source ~/.zshrc
