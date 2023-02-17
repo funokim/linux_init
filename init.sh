@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Zsh
 if [[ -z $(which zsh) ]]; then
@@ -30,6 +30,7 @@ if [[ -z $(which tmux) ]]; then
   cp input/.tmux.conf ~/.tmux.conf
 fi
 
+# zsh plugins
 if ! [[ -e ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
@@ -39,4 +40,12 @@ if ! [[ -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]]; then
 fi
 
 sed -i 's/plugins=(.*)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
+
+# Aliases
+if [[ -z $(sed -n "s/alias l=.*/alias l='ls -lh'/gp" ~/.zshrc) ]]; then
+  echo "\nalias l='ls -lh'" >> ~/.zshrc
+else
+  sed -i "s/alias l=.*/alias l='ls -lh'/g" ~/.zshrc
+fi
+
 source ~/.zshrc
