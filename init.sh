@@ -43,7 +43,7 @@ sed -i 's/plugins=(.*)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # Aliases
 if [[ -z $(sed -n "s/alias l=.*/alias l='ls -lh'/gp" ~/.zshrc) ]]; then
-  echo "\nalias l='ls -lh'" >> ~/.zshrc
+  echo "alias l='ls -lh'" >> ~/.zshrc
 else
   sed -i "s/alias l=.*/alias l='ls -lh'/g" ~/.zshrc
 fi

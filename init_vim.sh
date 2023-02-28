@@ -6,9 +6,8 @@ sudo apt install fd-find ripgrep -y
 
 # Neovim
 if [[ -z $(which checkinstall) ]]; then
-  sudo add-apt-repository 'deb http://deb.debian.org/debian buster-backports main'
   sudo apt update
-  sudo apt install checkinstall
+  sudo apt install checkinstall -y
 fi
 
 if [[ -z $(which nvim) ]]; then
