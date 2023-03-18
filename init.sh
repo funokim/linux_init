@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Zsh
 if [[ -z $(which zsh) ]]; then
@@ -47,5 +47,3 @@ if [[ -z $(sed -n "s/alias l=.*/alias l='ls -lh'/gp" ~/.zshrc) ]]; then
 else
   sed -i "s/alias l=.*/alias l='ls -lh'/g" ~/.zshrc
 fi
-
-source ~/.zshrc
